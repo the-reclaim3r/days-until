@@ -18,7 +18,7 @@ function InputFields() {
 	const saveDate = () => {
 		window.localStorage.setItem('event-name', name);
 		window.localStorage.setItem('target-date', date?.toString() ?? '');
-    window.dispatchEvent(new Event('days-until'));
+		window.dispatchEvent(new Event('days-until'));
 	};
 
 	const errorMessage = useMemo(() => {
@@ -47,7 +47,7 @@ function InputFields() {
 			</Typography>
 			<TextField
 				placeholder='Name'
-        autoComplete='off'
+				autoComplete='off'
 				value={name}
 				onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
 					setName(event.target.value);
@@ -70,7 +70,7 @@ function InputFields() {
 			</LocalizationProvider>
 			<Button
 				variant='outlined'
-				disabled={error !== null || date === null}
+				disabled={error !== null || date === null || name === ''}
 				onClick={saveDate}
 			>
 				Save
