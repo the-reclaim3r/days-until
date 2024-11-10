@@ -21,7 +21,7 @@ const DaysUntil = () => {
 			flexDirection='column'
 			gap={2}
 		>
-			<Typography variant='h3'>
+			<Typography variant='h1' fontWeight={400}>
 				{dayDifference} Days until {eventName}
 			</Typography>
 			<Button variant='outlined' onClick={() => window.localStorage.clear()}>

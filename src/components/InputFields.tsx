@@ -18,6 +18,7 @@ function InputFields() {
 	const saveDate = () => {
 		window.localStorage.setItem('event-name', name);
 		window.localStorage.setItem('target-date', date?.toString() ?? '');
+    window.dispatchEvent(new Event('days-until'));
 	};
 
 	const errorMessage = useMemo(() => {
