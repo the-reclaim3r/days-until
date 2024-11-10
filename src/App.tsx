@@ -11,7 +11,7 @@ function App() {
 			justifyContent='center'
 			alignItems='center'
 		>
-			<Date />
+			<Date setDate={() => {}}/>
 		</Box>
 	);
 }
