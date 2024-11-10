@@ -1,11 +1,19 @@
 import React from 'react';
-import './App.css';
-import Timer from './components/Timer';
+import Date from './components/Date';
+import { Box } from '@mui/material';
 
 function App() {
-  return (
-    <Timer />
-  );
+	return (
+		<Box
+			height='100vh'
+			width='100vw'
+			display='flex'
+			justifyContent='center'
+			alignItems='center'
+		>
+			<Date />
+		</Box>
+	);
 }
 
 export default App;
