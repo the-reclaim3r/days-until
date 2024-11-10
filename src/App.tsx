@@ -1,19 +1,20 @@
-import React from 'react';
-import Date from './components/Date';
-import { Box } from '@mui/material';
+import React from "react";
+import Date from "./components/Date";
+import InputFields from "./components/InputFields";
+import { Box } from "@mui/material";
 
 function App() {
-	return (
-		<Box
-			height='100vh'
-			width='100vw'
-			display='flex'
-			justifyContent='center'
-			alignItems='center'
-		>
-			<Date setDate={() => {}}/>
-		</Box>
-	);
+  return (
+    <Box
+      height="100vh"
+      width="100vw"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <InputFields />
+    </Box>
+  );
 }
 
 export default App;
