@@ -47,6 +47,7 @@ function InputFields() {
 			</Typography>
 			<TextField
 				placeholder='Name'
+        autoComplete='off'
 				value={name}
 				onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
 					setName(event.target.value);
