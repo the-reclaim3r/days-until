@@ -16,7 +16,7 @@ function InputFields() {
 	const [error, setError] = useState<DateValidationError | null>(null);
 
 	const saveDate = () => {
-		window.localStorage.setItem('event-name', name);
+		window.localStorage.setItem('event-name', name.trim());
 		window.localStorage.setItem('target-date', date?.toString() ?? '');
 		window.dispatchEvent(new Event('days-until'));
 	};
@@ -70,7 +70,7 @@ function InputFields() {
 			</LocalizationProvider>
 			<Button
 				variant='outlined'
-				disabled={error !== null || date === null || name === ''}
+				disabled={error !== null || date === null || name.trim() === ''}
 				onClick={saveDate}
 			>
 				Save
