@@ -5,7 +5,9 @@ import './App.css';
 import DaysUntil from './components/DaysUntil';
 
 function App() {
-	const [dateExists, setDateExists] = useState<boolean>(false);
+	const [dateExists, setDateExists] = useState<boolean>(
+		window.localStorage.getItem('target-date') !== null
+	);
 
 	const handleLocalStorageCheck = useCallback(() => {
 		const targetDate = window.localStorage.getItem('target-date');
