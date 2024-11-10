@@ -15,6 +15,11 @@ function InputFields() {
 	const [date, setDate] = React.useState<Dayjs | null>(null);
 	const [error, setError] = React.useState<DateValidationError | null>(null);
 
+	const saveDate = () => {
+		window.localStorage.setItem('event-name', name);
+		window.localStorage.setItem('target-date', date?.toISOString() ?? '');
+	};
+
 	const errorMessage = React.useMemo(() => {
 		switch (error) {
 			case 'invalidDate': {
@@ -61,7 +66,11 @@ function InputFields() {
 					}}
 				/>
 			</LocalizationProvider>
-			<Button variant='outlined' disabled={error !== null || date === null}>
+			<Button
+				variant='outlined'
+				disabled={error !== null || date === null}
+				onClick={saveDate}
+			>
 				Save
 			</Button>
 		</Box>
