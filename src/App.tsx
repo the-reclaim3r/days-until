@@ -14,6 +14,8 @@ function App() {
 
 		if (targetDate !== null) {
 			setDateExists(true);
+		} else {
+			setDateExists(false);
 		}
 	}, []);
 

@@ -31,6 +31,7 @@ const DaysUntil = () => {
 				onClick={() => {
 					window.localStorage.clear();
 					window.dispatchEvent(new Event('days-until'));
+					console.log(window.localStorage.getItem('target-date'));
 				}}
 			>
 				Clear
