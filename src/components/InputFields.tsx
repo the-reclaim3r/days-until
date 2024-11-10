@@ -16,7 +16,7 @@ function InputFields() {
 			flexDirection='column'
 			gap={4}
 		>
-			<Typography variant='h4'>Enter name and date</Typography>
+			<Typography variant='h4'>What are you looking forward to next?</Typography>
 			<TextField
 				placeholder='Name'
 				value={name}
@@ -29,7 +29,7 @@ function InputFields() {
 					setDate(date);
 				}}
 			/>
-			<Button variant='contained'>Save</Button>
+			<Button variant='outlined'>Save</Button>
 		</Box>
 	);
 }

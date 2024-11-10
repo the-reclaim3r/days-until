@@ -1,6 +1,7 @@
 import React from "react";
 import InputFields from "./components/InputFields";
 import { Box } from "@mui/material";
+import "./App.css"
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       display="flex"
       justifyContent="center"
       alignItems="center"
+      className="background"
     >
       <InputFields />
     </Box>
