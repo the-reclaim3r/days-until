@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { Box, Button, Typography } from '@mui/material';
 import { Dayjs } from 'dayjs';
@@ -11,16 +11,16 @@ import {
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 function InputFields() {
-	const [name, setName] = React.useState('');
-	const [date, setDate] = React.useState<Dayjs | null>(null);
-	const [error, setError] = React.useState<DateValidationError | null>(null);
+	const [name, setName] = useState('');
+	const [date, setDate] = useState<Dayjs | null>(null);
+	const [error, setError] = useState<DateValidationError | null>(null);
 
 	const saveDate = () => {
 		window.localStorage.setItem('event-name', name);
-		window.localStorage.setItem('target-date', date?.toISOString() ?? '');
+		window.localStorage.setItem('target-date', date?.toString() ?? '');
 	};
 
-	const errorMessage = React.useMemo(() => {
+	const errorMessage = useMemo(() => {
 		switch (error) {
 			case 'invalidDate': {
 				return 'Please enter a valid date';
