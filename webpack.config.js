@@ -54,6 +54,7 @@ function getHtmlPlugins(chunks) {
 				title: 'Days until',
 				filename: `${chunk}.html`,
 				chunks: [chunk],
+				favicon: "./public/favicon.ico"
 			})
 	);
 }
