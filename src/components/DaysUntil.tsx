@@ -29,7 +29,7 @@ const DaysUntil = () => {
 				{eventName}
 			</Typography>
 			<Typography variant='h2' fontWeight={400}>
-				in {days ? days + ' days, ' : ''} {hours} hours{' '}
+				in {days ? days + ' days and ' : ''} {hours} hours{' '}
 				{days ? '' : 'and ' + minutes + ' minutes'}
 			</Typography>
 			<Button
