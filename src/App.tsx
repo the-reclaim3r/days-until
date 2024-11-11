@@ -54,7 +54,7 @@ function App() {
 	}, [handleColourSchemeChange, handleLocalStorageCheck]);
 
 	return (
-		<ThemeProvider theme={darkTheme}>
+		<ThemeProvider theme={darkTheme} defaultMode='light'>
 			<CssBaseline />
 			<Box
 				height='100vh'
