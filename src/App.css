@@ -1,24 +1,51 @@
-.background {
-  background: linear-gradient(55deg, #adf2e0, #9fa0e8, #f3d088);
-  background-size: 600% 600%;
+.background_light {
+	background: linear-gradient(55deg, #adf2e0, #9fa0e8, #f3d088);
+	background-size: 600% 600%;
 
-  -webkit-animation: AnimationName 10s ease infinite;
-  -moz-animation: AnimationName 10s ease infinite;
-  animation: AnimationName 10s ease infinite;
+	-webkit-animation: AnimationName 0s ease infinite;
+	-moz-animation: AnimationName 0s ease infinite;
+	animation: AnimationName 0s ease infinite;
+}
+
+.background_dark {
+	background: linear-gradient(341deg, #7f4f21, #562222, #0c0a3e);
+	background-size: 600% 600%;
+
+	-webkit-animation: AnimationName 0s ease infinite;
+	-moz-animation: AnimationName 0s ease infinite;
+	animation: AnimationName 0s ease infinite;
 }
 
 @-webkit-keyframes AnimationName {
-  0%{background-position:15% 0%}
-  50%{background-position:86% 100%}
-  100%{background-position:15% 0%}
+	0% {
+		background-position: 15% 0%;
+	}
+	50% {
+		background-position: 86% 100%;
+	}
+	100% {
+		background-position: 15% 0%;
+	}
 }
 @-moz-keyframes AnimationName {
-  0%{background-position:15% 0%}
-  50%{background-position:86% 100%}
-  100%{background-position:15% 0%}
+	0% {
+		background-position: 15% 0%;
+	}
+	50% {
+		background-position: 86% 100%;
+	}
+	100% {
+		background-position: 15% 0%;
+	}
 }
 @keyframes AnimationName {
-  0%{background-position:15% 0%}
-  50%{background-position:86% 100%}
-  100%{background-position:15% 0%}
+	0% {
+		background-position: 15% 0%;
+	}
+	50% {
+		background-position: 86% 100%;
+	}
+	100% {
+		background-position: 15% 0%;
+	}
 }

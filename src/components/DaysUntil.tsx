@@ -29,16 +29,17 @@ const DaysUntil = () => {
 				{eventName}
 			</Typography>
 			<Typography variant='h2' fontWeight={400}>
-				in {days ? days + ' days, ' : ''} {hours} hours{' '}
+				in {days ? days + ' days, ' : ''} {hours} hours and {' '}
 				{days ? '' : minutes + ' minutes'}
 			</Typography>
 			<Button
 				variant='outlined'
 				onClick={() => {
-					window.localStorage.clear();
+					window.localStorage.removeItem('event-name');
+          window.localStorage.removeItem('target-date');
 					window.dispatchEvent(new Event('days-until'));
-					console.log(window.localStorage.getItem('target-date'));
 				}}
+        sx={{ marginTop: 4 }}
 			>
 				Clear
 			</Button>
