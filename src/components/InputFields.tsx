@@ -1,19 +1,19 @@
 import React, { useMemo, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { Box, Button, Typography } from '@mui/material';
-import { Dayjs } from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import AvTimerIcon from '@mui/icons-material/AvTimer';
 import {
-	DatePicker,
-	DateValidationError,
+	DateTimePicker,
+	DateTimeValidationError,
 	LocalizationProvider,
 } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 function InputFields() {
 	const [name, setName] = useState('');
-	const [date, setDate] = useState<Dayjs | null>(null);
-	const [error, setError] = useState<DateValidationError | null>(null);
+	const [date, setDate] = useState<Dayjs | null>(dayjs().add(1, 'd').minute(0));
+	const [error, setError] = useState<DateTimeValidationError | null>(null);
 
 	const saveDate = () => {
 		window.localStorage.setItem('event-name', name.trim());
@@ -54,7 +54,7 @@ function InputFields() {
 				}}
 			/>
 			<LocalizationProvider dateAdapter={AdapterDayjs}>
-				<DatePicker
+				<DateTimePicker
 					value={date}
 					onChange={(newValue) => {
 						setDate(newValue);

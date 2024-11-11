@@ -24,7 +24,10 @@ const DaysUntil = () => {
 			gap={2}
 		>
 			<Typography variant='h1' fontWeight={400}>
-				{days} days until {eventName}
+				{eventName}
+			</Typography>
+			<Typography variant='h2' fontWeight={400}>
+				{days} days, {hours} hours
 			</Typography>
 			<Button
 				variant='outlined'
