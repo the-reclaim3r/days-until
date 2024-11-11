@@ -8,7 +8,9 @@ const DaysUntil = () => {
 
 	let hours = dayjs(targetDate).diff(dayjs(), 'hours');
 	const days = Math.floor(hours / 24);
-	hours = hours - days * 24; // TODO maybe: allow user to choose time for events
+	hours = hours - days * 24;
+	let minutes = dayjs(targetDate).diff(dayjs(), 'minutes');
+	minutes = Math.floor(minutes - hours * 60); // TODO refresh display of minutes every minute
 
 	useEffect(() => {
 		setEventName(window.localStorage.getItem('event-name'));
@@ -27,7 +29,8 @@ const DaysUntil = () => {
 				{eventName}
 			</Typography>
 			<Typography variant='h2' fontWeight={400}>
-				{days} days, {hours} hours
+				in {days ? days + ' days, ' : ''} {hours} hours{' '}
+				{days ? '' : minutes + ' minutes'}
 			</Typography>
 			<Button
 				variant='outlined'
