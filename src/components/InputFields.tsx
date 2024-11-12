@@ -12,7 +12,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 function InputFields() {
 	const [name, setName] = useState('');
-	const [date, setDate] = useState<Dayjs | null>(dayjs().add(1, 'd').minute(0));
+	const [date, setDate] = useState<Dayjs | null>(dayjs().add(1, 'd').minute(0).second(0));
 	const [error, setError] = useState<DateTimeValidationError | null>(null);
 
 	const saveDate = () => {
@@ -57,6 +57,10 @@ function InputFields() {
 				<DateTimePicker
 					value={date}
 					onChange={(newValue) => {
+            if (newValue !== null) {
+              newValue = newValue.second(0)
+            }
+            
 						setDate(newValue);
 					}}
 					disablePast

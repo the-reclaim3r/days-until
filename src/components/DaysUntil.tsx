@@ -14,11 +14,11 @@ const DaysUntil = () => {
 	}, []);
 
 	const calculateTimeLeft = useCallback(() => {
+		const days = dayjs(targetDate).diff(dayjs(), 'days');
 		let hours = dayjs(targetDate).diff(dayjs(), 'hours');
-		const days = Math.floor(hours / 24);
 		hours = hours - days * 24;
-		let minutes = dayjs(targetDate).diff(dayjs(), 'minutes');
-		minutes = Math.floor(minutes - hours * 60); // TODO refresh output string every minute
+		let minutes = dayjs(targetDate).diff(dayjs(), 'minutes', true);
+		minutes = Math.floor(minutes - hours * 60);
 
 		// Event is in the past
 		if (dayjs(targetDate).diff(dayjs()) < 0) {
@@ -46,11 +46,12 @@ const DaysUntil = () => {
 
 	useEffect(() => {
 		setTimeLeft(calculateTimeLeft());
-		const interval = setTimeout(() => {
+
+		const interval = setInterval(() => {
 			setTimeLeft(calculateTimeLeft());
 		}, 10000);
 
-		return () => clearTimeout(interval);
+		return () => clearInterval(interval);
 	}, [calculateTimeLeft]);
 
 	return (
