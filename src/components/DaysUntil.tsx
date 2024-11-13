@@ -5,7 +5,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 const DaysUntil = () => {
 	const [eventName, setEventName] = useState<string | null>('');
 	const [targetDate, setTargetDate] = useState<string | null>();
-
 	const [timeLeft, setTimeLeft] = useState('');
 
 	useEffect(() => {
@@ -54,6 +53,12 @@ const DaysUntil = () => {
 		return () => clearInterval(interval);
 	}, [calculateTimeLeft]);
 
+	const handleClear = useCallback(() => {
+		window.localStorage.removeItem('event-name');
+		window.localStorage.removeItem('target-date');
+		window.dispatchEvent(new Event('days-until'));
+	}, []);
+
 	return (
 		<Box
 			display='flex'
@@ -62,21 +67,13 @@ const DaysUntil = () => {
 			flexDirection='column'
 			gap={2}
 		>
-			<Typography variant='h1' fontWeight={400}>
+			<Typography variant='h1' fontWeight={400} sx={{ opacity: 0.5 }}>
 				{eventName}
 			</Typography>
-			<Typography variant='h2' fontWeight={400}>
+			<Typography variant='h2' fontWeight={400} sx={{ opacity: 0.5 }}>
 				{timeLeft}
 			</Typography>
-			<Button
-				variant='outlined'
-				onClick={() => {
-					window.localStorage.removeItem('event-name');
-					window.localStorage.removeItem('target-date');
-					window.dispatchEvent(new Event('days-until'));
-				}}
-				sx={{ marginTop: 4 }}
-			>
+			<Button variant='outlined' onClick={handleClear} sx={{ marginTop: 4 }}>
 				Clear
 			</Button>
 		</Box>
