@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import dayjs from 'dayjs';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const DaysUntil = () => {
 	const [eventName, setEventName] = useState<string | null>('');
@@ -17,7 +17,10 @@ const DaysUntil = () => {
 		let hours = dayjs(targetDate).diff(dayjs(), 'hours');
 		hours = hours - days * 24;
 		let minutes = dayjs(targetDate).diff(dayjs(), 'minutes', true);
-		minutes = Math.floor(minutes - hours * 60);
+		minutes =
+			hours === 0
+				? Math.floor(minutes - days * 24 * 60)
+				: Math.floor(minutes - hours * 60);
 
 		// Event is in the past
 		if (dayjs(targetDate).diff(dayjs()) < 0) {
@@ -36,8 +39,13 @@ const DaysUntil = () => {
 			}
 		}
 
-		if (days === 0 && minutes > 0) {
-			timeString += `${minutes} minute${minutes === 1 ? '' : 's'}`;
+		if (minutes > 0) {
+			if (hours === 0) {
+				timeString += `${minutes} minute${minutes === 1 ? '' : 's'}`;
+			} else if (days === 0)
+				timeString += `${minutes} minute${minutes === 1 ? '' : 's'}`;
+		} else {
+			timeString += `0 minutes`;
 		}
 
 		return timeString;
